@@ -9,7 +9,7 @@ export default defineConfig({
     proxy: {
       "/api": {
         // target: "http://localhost:8000",
-        target: "https://pushnotificationpython.onrender.com/",
+        target: "https://pushnotificationbackend-3.onrender.com/",
         changeOrigin: true,
       },
     },
