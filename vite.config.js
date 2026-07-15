@@ -8,7 +8,8 @@ export default defineConfig({
     // Proxy API calls to the FastAPI backend during development
     proxy: {
       "/api": {
-        target: "http://localhost:8000",
+        // target: "http://localhost:8000",
+        target: "https://pushnotificationpython.onrender.com/",
         changeOrigin: true,
       },
     },
