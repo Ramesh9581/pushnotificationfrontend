@@ -45,9 +45,10 @@ export function setupForegroundNotifications() {
   return onMessage(messaging, async (payload) => {
     console.log("[FCM] Foreground message received:", payload);
 
-    const title = payload.notification?.title ?? "New Notification";
-    const body  = payload.notification?.body  ?? "";
+    // Backend sends data-only messages — title/body are inside payload.data
     const data  = payload.data ?? {};
+    const title = data.title ?? payload.notification?.title ?? "New Notification";
+    const body  = data.body  ?? payload.notification?.body  ?? "";
 
     // Post to the active SW — it will call showNotification
     if ("serviceWorker" in navigator) {
